@@ -15,5 +15,5 @@ https://github.com/ihebski/DefaultCreds-cheat-sheet
 
 - [](https://github.com/blasty/CVE-2021-3156)
 > SUDO提权：
-make
-./sudo-hax-me-a-sandwich
+> make
+> ./sudo-hax-me-a-sandwich
