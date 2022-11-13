@@ -27,5 +27,7 @@ https://afinepl.medium.com/testing-and-exploiting-java-deserialization-in-2021-e
 
 - [红蓝对抗中的云原生漏洞挖掘及利用实录](https://mp.weixin.qq.com/s/Aq8RrH34PTkmF8lKzdY38g)
 > 2020年演练通过云原生突破进入内网；
+
 > 容器环境收集收集技巧，Docker逃逸一些技巧和漏洞利用
+
 > 编排组件API配置不当等：kubelet、etcd、dashboard
