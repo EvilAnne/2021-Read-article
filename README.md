@@ -31,3 +31,48 @@ https://afinepl.medium.com/testing-and-exploiting-java-deserialization-in-2021-e
 > 容器环境收集收集技巧，Docker逃逸一些技巧和漏洞利用
 
 > 编排组件API配置不当等：kubelet、etcd、dashboard
+
+
+- [负载均衡下的 WebShell 连接](https://mp.weixin.qq.com/s/4Bmz_fuu0yrLMK1oBKKtRA)
+> 通过代理脚本判断之后执行命令
+
+- [CobaltStrike插件编写指南](https://mp.weixin.qq.com/s/i7QzwMAmUyxoBs0CwcGC-g)
+
+- [渗透大型菠菜网站鸭脖](https://mp.weixin.qq.com/s/sJAyhQQvGqG-SliSGbhJNA)
+
+- [HackTricks](https://book.hacktricks.xyz/)
+
+- [web安全-数据验证不当](https://www.yuque.com/pmiaowu/web_security_1)
+
+- [Atomic Red Team adds tests for cloud and containers](https://redcanary.com/blog/art-cloud-containers/)
+> Atomic Red Team一直专注于传统的Windows端口，其实大部分云基础设施都是在Linux上运行
+
+- [红队硬件工具包](https://github.com/sectool/redteam-hardware-toolkit)
+
+- [安全建设-攻防思路及实践（一）](https://paper.seebug.org/1637/)
+
+- [Exchange攻击方法](https://blog.orange.tw/2021/08/proxylogon-a-new-attack-surface-on-ms-exchange-part-1.html?m=1)
+
+- [RedTeam笔记](https://kwcsec.gitbook.io/the-red-team-handbook/)
+
+- [Zabbix攻击面](http://noahblog.360.cn/zabbixgong-ji-mian-wa-jue-yu-li-yong/)
+
+- [COBALTSTIRKE BOF技术剖析（一）](http://blog.nsfocus.net/cobaltstirke-bof/)
+> 内存中不落地执行，避免针对文件内容的检测，在本进程加载执行BOF中的功能代码。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
