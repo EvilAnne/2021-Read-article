@@ -13,7 +13,19 @@ https://github.com/ihebski/DefaultCreds-cheat-sheet
 - [A Glossary of Blind SSRF Chains](https://blog.assetnote.io/2021/01/13/blind-ssrf-chains/)
 > 关于Blind SSRF利用
 
-- [](https://github.com/blasty/CVE-2021-3156)
+- [CVE-2021-3156](https://github.com/blasty/CVE-2021-3156)
 > SUDO提权：
-> make
-> ./sudo-hax-me-a-sandwich
+> make && ./sudo-hax-me-a-sandwich
+
+https://github.com/Kyuu-Ji/Awesome-Azure-Pentest
+> Azure渗透测试资料
+
+https://afinepl.medium.com/testing-and-exploiting-java-deserialization-in-2021-e762f3e43ca2
+> Java反序列化
+
+- [offensive-security-guide-to-ssh-tunnels-and-proxies](https://posts.specterops.io/offensive-security-guide-to-ssh-tunnels-and-proxies-b525cbd4d4c6)
+
+- [红蓝对抗中的云原生漏洞挖掘及利用实录](https://mp.weixin.qq.com/s/Aq8RrH34PTkmF8lKzdY38g)
+> 2020年演练通过云原生突破进入内网；
+容器环境收集收集技巧，Docker逃逸一些技巧和漏洞利用
+编排组件API配置不当等：kubelet、etcd、dashboard
